@@ -4,18 +4,18 @@ function Todo() {
     const[newTodo, setNewTodo] = useState('')
     const[todos, setTodos] = useState([])
     
-    //Add button sathi
+    
     const handleSubmit = (e) =>{
        e.preventDefault();
-       if(newTodo){     //he check krnar ki newTodo mdhe value aahe ka
+       if(newTodo){     
         setTodos([...todos, {text:newTodo, completed:false}])
         setNewTodo('')
        }
     }
     
-    //Delete button sathi. index use krun delete kraych task.
+
     const handleDelete = (index) =>{
-        const newTodos = [...todos];      //[...todos] spread operator aahe
+        const newTodos = [...todos];      
         newTodos[index].completed = !newTodos[index].completed
         setTodos(newTodos)
     }
@@ -28,12 +28,12 @@ function Todo() {
             type="text" 
             placeholder='Add new todo'
             value={newTodo}
-            onChange={(e) => setNewTodo(e.target.value)}  //value la target kel aani tila newTodo variable mdhe store kel.
+            onChange={(e) => setNewTodo(e.target.value)}  
             />
             <button type='submit'>Add Todo</button>
         </form>
         <ul> 
-            {todos.map((todo, index) => (    //it is a map loop. todo mdhe ek ek krun array element value store honar. detete button vr click kelyavr ha loop punha chalnar aani check krnar ki task complete aahe ka asel tr tyavr line odhnar.
+            {todos.map((todo, index) => (    
               
               //key la index pass kraychi
               <li key={index}>               
